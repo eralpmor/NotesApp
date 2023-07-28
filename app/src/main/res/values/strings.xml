@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Not Defterim</string>
     <string name="my_notes">Notlarım</string>
+    <string name="note_title">Not Başlığı</string>
+    <string name="note_subtitle">Not Alt Başlığı</string>
+    <string name="type_note_here">Notu Buraya Yazın</string>
 
 
 </resources>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#292929</color>
-    <color name="colorPrimaryDark">##292929</color>
+    <color name="colorPrimaryDark">#292929</color>
     <color name="colorSecondary">#292929</color>
-    <color name="colorSecondaryDark">##292929</color>
+    <color name="colorSecondaryDark">#292929</color>
     <color name="searchIcon">#DBDBDB</color>
     <color name="textHint">#7B7B7B</color>
     <color name="quickActionsBackground">#2F2E2D</color>

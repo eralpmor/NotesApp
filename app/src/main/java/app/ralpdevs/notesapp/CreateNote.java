@@ -7,27 +7,25 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-public class MainActivity extends AppCompatActivity {
-
-    public static final int REQUEST_CODE_ADD_NOTE = 1;
+public class CreateNote extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_create_note);
         findView();
     }
 
 
     private void findView(){
-        ImageView imageAddNoteMain = findViewById(R.id.imageAddNoteMain);
-        imageAddNoteMain.setOnClickListener(new View.OnClickListener() {
+        ImageView imageBack = findViewById(R.id.imageBack);
+        imageBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivityForResult(
-                        new Intent(getApplicationContext(), CreateNote.class),REQUEST_CODE_ADD_NOTE
-                );
+                onBackPressed();
             }
         });
+
     }
+
 }

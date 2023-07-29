@@ -4,8 +4,9 @@
     <string name="note_title">Not Başlığı</string>
     <string name="note_subtitle">Not Alt Başlığı</string>
     <string name="type_note_here">Notu Buraya Yazın</string>
-    <string name="miscellaneous">Çeşitli</string>
+    <string name="miscellaneous">Etiketler</string>
     <string name="pick_color">Renk Seçin</string>
+    <string name="add_image">Görsel Ekle</string>
 
 
 </resources>

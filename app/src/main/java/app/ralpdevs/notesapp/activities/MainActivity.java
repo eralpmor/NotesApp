@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void findView(){
+    private void findView() {
         imageAddNoteMain = findViewById(R.id.imageAddNoteMain);
         notesRecyclerView = findViewById(R.id.notesRecyclerView);
 
@@ -45,12 +45,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivityForResult(
-                        new Intent(getApplicationContext(), CreateNote.class),REQUEST_CODE_ADD_NOTE
+                        new Intent(getApplicationContext(), CreateNote.class), REQUEST_CODE_ADD_NOTE
                 );
             }
         });
 
-        notesRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+        notesRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
 
         noteList = new ArrayList<>();
         notesAdapter = new NotesAdapter(noteList);
@@ -59,9 +59,9 @@ public class MainActivity extends AppCompatActivity {
         getNotes();
     }
 
-    private void getNotes(){
+    private void getNotes() {
 
-        class GetNotesTask extends AsyncTask <Void, Void, List<Note>> {
+        class GetNotesTask extends AsyncTask<Void, Void, List<Note>> {
             @Override
             protected List<Note> doInBackground(Void... voids) {
                 return NotesDb.getDatabase(getApplicationContext()).noteDao().getAllNotes();
@@ -70,11 +70,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(List<Note> notes) {
                 super.onPostExecute(notes);
-                if(noteList.size() == 0){
+                if (noteList.size() == 0) {
                     noteList.addAll(notes);
                     notesAdapter.notifyDataSetChanged();
                 } else {
-                    noteList.add(0,notes.get(0));
+                    noteList.add(0, notes.get(0));
                     notesAdapter.notifyItemInserted(0);
                 }
                 notesRecyclerView.smoothScrollToPosition(0);
@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == REQUEST_CODE_ADD_NOTE && resultCode == RESULT_OK){
+        if (requestCode == REQUEST_CODE_ADD_NOTE && resultCode == RESULT_OK) {
             getNotes();
         }
     }

@@ -7,6 +7,10 @@
     <string name="miscellaneous">Etiketler</string>
     <string name="pick_color">Renk Seçin</string>
     <string name="add_image">Görsel Ekle</string>
+    <string name="add_url">URL Ekle</string>
+    <string name="enter_url">URL Giriniz</string>
+    <string name="add">EKLE</string>
+    <string name="cancel_dialog">İPTAL</string>
 
 
 </resources>

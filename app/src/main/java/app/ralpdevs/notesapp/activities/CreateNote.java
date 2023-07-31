@@ -118,6 +118,22 @@ public class CreateNote extends AppCompatActivity {
         });
         textDateTime.setText(new SimpleDateFormat("EEEE, dd MMMM yyyy HH:mm a", Locale.getDefault()).format(new Date()));
 
+
+        if(getIntent().getBooleanExtra("isFromQuickActions",false)){
+            String type = getIntent().getStringExtra("quickActionType");
+            if(type != null){
+                if(type.equals("image")){
+                    selectedImagePath = getIntent().getStringExtra("imagePath");
+                    imageNote.setImageBitmap(BitmapFactory.decodeFile(selectedImagePath));
+                    imageNote.setVisibility(View.VISIBLE);
+                    findViewById(R.id.imageRemoveImage).setVisibility(View.VISIBLE);
+                } else if (type.equals("URL")) {
+                    textWebURL.setText(getIntent().getStringExtra("URL"));
+                    layoutWebURL.setVisibility(View.VISIBLE);
+                }
+            }
+        }
+
     }
 
     private void setViewOrUpdateNote(){
@@ -218,7 +234,7 @@ public class CreateNote extends AppCompatActivity {
         layoutMiscellanous.findViewById(R.id.viewColor2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                selectedNoteColor = "#FDBE3B";
+                selectedNoteColor = "#8CC63C";
                 imageColor1.setImageResource(0);
                 imageColor2.setImageResource(R.drawable.ic_done);
                 imageColor3.setImageResource(0);
@@ -230,7 +246,7 @@ public class CreateNote extends AppCompatActivity {
         layoutMiscellanous.findViewById(R.id.viewColor3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                selectedNoteColor = "#FF4842";
+                selectedNoteColor = "#EC3C33";
                 imageColor1.setImageResource(0);
                 imageColor2.setImageResource(0);
                 imageColor3.setImageResource(R.drawable.ic_done);
@@ -242,7 +258,7 @@ public class CreateNote extends AppCompatActivity {
         layoutMiscellanous.findViewById(R.id.viewColor4).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                selectedNoteColor = "#3A52Fc";
+                selectedNoteColor = "#0982B2";
                 imageColor1.setImageResource(0);
                 imageColor2.setImageResource(0);
                 imageColor3.setImageResource(0);
@@ -254,7 +270,7 @@ public class CreateNote extends AppCompatActivity {
         layoutMiscellanous.findViewById(R.id.viewColor5).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                selectedNoteColor = "#000000";
+                selectedNoteColor = "#FF7D1D";
                 imageColor1.setImageResource(0);
                 imageColor2.setImageResource(0);
                 imageColor3.setImageResource(0);
@@ -266,16 +282,16 @@ public class CreateNote extends AppCompatActivity {
 
         if(alreadyAvailableNote != null && alreadyAvailableNote.getColor() != null && !alreadyAvailableNote.getColor().trim().isEmpty()){
             switch (alreadyAvailableNote.getColor()){
-                case "#FDBE3B":
+                case "#8CC63C":
                     layoutMiscellanous.findViewById(R.id.viewColor2).performClick();
                     break;
-                case "#FF4842":
+                case "#EC3C33":
                     layoutMiscellanous.findViewById(R.id.viewColor3).performClick();
                     break;
-                case "#3A52Fc":
+                case "#0982B2":
                     layoutMiscellanous.findViewById(R.id.viewColor4).performClick();
                     break;
-                case "#000000":
+                case "#FF7D1D":
                     layoutMiscellanous.findViewById(R.id.viewColor5).performClick();
                     break;
 
